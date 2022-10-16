@@ -12,7 +12,7 @@ public class GPSDataConverter {
 	
 	private static int TIME_STARTINDEX = 11; // posisjon for start av tidspunkt i timestr
 
-	public static int toSeconds(String timestr) {
+	public static int toSeconds(String timestr) { // DAT
 		String time = timestr.substring(TIME_STARTINDEX,13);
 		int i = Integer.parseInt(time);
 		
@@ -36,18 +36,18 @@ public class GPSDataConverter {
 	}
 	
 
-	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {
+	public static GPSPoint convert(String timeStr, String latitudeStr, String longitudeStr, String elevationStr) {//ADAM
 
 		
 		int time = toSeconds(timeStr);
-//		
+
 		double latitude = Double.parseDouble(latitudeStr);
 		
 		double longitude = Double.parseDouble(longitudeStr);
 		
 		double elevation = Double.parseDouble(elevationStr);
 		
-		GPSPoint gpspoint = new GPSPoint(time, latitude, longitude, elevation);
+		GPSPoint gpspoint = new GPSPoint(time, latitude, longitude, elevation);//lager nytt objekt
 	
 		
 		// TODO - START ;

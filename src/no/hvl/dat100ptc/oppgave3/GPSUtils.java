@@ -73,7 +73,7 @@ public class GPSUtils {
 
 	private static int R = 6371000; // jordens radius
 
-	public static double distance(GPSPoint gpspoint1, GPSPoint gpspoint2) {
+	public static double distance(GPSPoint gpspoint1, GPSPoint gpspoint2) { //ADAM
 
 		double d; //avstand mellom gpspoint1 til gpspoint2
 		double latitude1, longitude1, latitude2, longitude2;
@@ -82,7 +82,7 @@ public class GPSUtils {
 		latitude2 = gpspoint2.getLatitude();
 		longitude1 = gpspoint1.getLongitude();
 		longitude2 = gpspoint2.getLongitude();
-				// TODO - START
+				// TODO - START pow(2,3)
 		double a = pow(sin(toRadians(latitude2-latitude1)/2),2) + (cos(toRadians(latitude1)) * cos(toRadians(latitude2)) * pow(sin(toRadians(longitude2-longitude1)/2),2));
 		double c = 2*(atan2(sqrt(a),sqrt(1-a))) ; 
 
@@ -94,7 +94,7 @@ public class GPSUtils {
 
 	}
 //SPEED metoden kalkulerer gjennomsnittet mellom punkt 1 og punkt 2
-	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) {
+	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) { //DAT
 		
 		int secs;
 		double speed;
@@ -114,7 +114,7 @@ public class GPSUtils {
 
 	}
 
-	public static String formatTime(int secs) {
+	public static String formatTime(int secs) { //DAT
 
 		String timestr;
 		String TIMESEP = ":";
@@ -133,10 +133,9 @@ public class GPSUtils {
 	}
 	private static int TEXTWIDTH = 10;
 
-	public static String formatDouble(double d) {
+	public static String formatDouble(double d) { //DAT
 
 		String str;
-		
 		
 		
 		str = String.format("%10.2f",d);

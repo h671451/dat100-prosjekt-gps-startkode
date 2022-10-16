@@ -5,7 +5,7 @@ import no.hvl.dat100ptc.TODO;
 
 
 public class GPSPoint {
-
+	//Dat
 	// TODO - objektvariable
 	public int time;
 	private double latitude;
@@ -25,7 +25,7 @@ public class GPSPoint {
 
 
 	// TODO - get/set metoder
-	public int getTime() {
+	public int getTime() { // ADAM
 		
 		return time;
 		
@@ -68,7 +68,7 @@ public class GPSPoint {
 		this.elevation = elevation;
 	}
 	
-	public String toString() {
+	public String toString() { //Henning
 		
 		// TODO - start
 		String str = time + " (" + latitude + "," + longitude + ") " + elevation + "\n";

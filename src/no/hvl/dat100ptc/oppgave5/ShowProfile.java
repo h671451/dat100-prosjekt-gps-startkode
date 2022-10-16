@@ -45,7 +45,6 @@ public class ShowProfile extends EasyGraphics {
 
 		// ybase indicates the position on the y-axis where the columns should start
 	
-
 		for(int i = 0; i<gpspoints.length-1; i++) {
 		    setColor(0,0,255);
 		    int x = MARGIN +i *3;

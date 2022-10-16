@@ -27,16 +27,13 @@ public class GPSComputer {
 	}
 	
 	// beregn total distances (i meter)
-	public double totalDistance() {
+	public double totalDistance() { //ADAM
 
 		double distance = 0;
-		
 		for(int i = 0; i<gpspoints.length-1; i++) {
 			if ( i<gpspoints.length) {
 				distance += GPSUtils.distance(gpspoints[i], gpspoints[i+1]);
-			} else if (i == gpspoints.length-1) {
-				distance += GPSUtils.distance(gpspoints[i-1], gpspoints[i]);
-			}
+			} 
 			
 		}
 		
@@ -47,7 +44,7 @@ public class GPSComputer {
 	}
 
 	// beregn totale høydemeter (i meter)
-	public double totalElevation() {
+	public double totalElevation() {// 
 
 		double elevation = 0;
 		double mediElevation;
@@ -133,7 +130,7 @@ public class GPSComputer {
 	public static double MS = 2.236936;
 
 	// beregn kcal gitt weight og tid der kjøres med en gitt hastighet
-	public double kcal(double weight, int secs, double speed) {
+	public double kcal(double weight, int secs, double speed) { //DAT
 
 		double kcal;
 
@@ -174,12 +171,12 @@ public class GPSComputer {
 //		
 //		for(int i = 0; i<gpspoints.length-1; i ++) {
 //			avgspeed[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);//gir gjennomsnitthastigheten
-////			secs[i] = gpspoints[i+1].getTime()-gpspoints[i].getTime(); //gir sekundene per gpspunkt
+//			secs[i] = gpspoints[i+1].getTime()-gpspoints[i].getTime(); //gir sekundene per gpspunkt
 //			
 //			x[i] += kcal(weight,secs,avgspeed[i]*MS); 
 //			totalkcal += x[i];
 //		}
-//		
+		
 		return kcal(weight,this.totalTime(),this.averageSpeed());
 		// TODO - SLUTT
 		
@@ -190,7 +187,7 @@ public class GPSComputer {
 	public void displayStatistics() {
 
 		System.out.println("==============================================");
-		System.out.println("Total Time      : " + GPSUtils.formatTime(this.totalTime()));
+		System.out.println("Total Time      : " + GPSUtils.formatTime(totalTime()));
 		System.out.println("Total distance  : " + GPSUtils.formatDouble(totalDistance()/1000) + " km");
 		System.out.println("Total elevation : " + GPSUtils.formatDouble(totalElevation()) + " m");
 		

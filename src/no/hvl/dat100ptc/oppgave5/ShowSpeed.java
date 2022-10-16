@@ -50,7 +50,7 @@ public class ShowSpeed extends EasyGraphics {
 			int x = N;
 			int y = (int) speeds[i];
 			int draw = ybase; 
-			draw.gpspoints[iShowProfile.showHeightProfile();
+//			draw.gpspoints[iShowProfile.showHeightProfile();
 		    setColor(0,0,255);
 			drawLine(x,ybase,x,ybase-y);
 
