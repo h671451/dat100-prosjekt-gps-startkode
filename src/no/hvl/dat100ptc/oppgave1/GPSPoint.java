@@ -24,12 +24,6 @@ public class GPSPoint {
 
 
 
-	public GPSPoint(String time2, String latitude2, String longitude2, String elevation2) {
-		// TODO Auto-generated constructor stub
-	}
-
-
-
 	// TODO - get/set metoder
 	public int getTime() {
 		
@@ -77,7 +71,7 @@ public class GPSPoint {
 	public String toString() {
 		
 		// TODO - start
-		String str = "GPS TIME: " + time + "Latitude: " + latitude + " Longitude: " + longitude + " ELevation: " + elevation;
+		String str = time + " (" + latitude + "," + longitude + ") " + elevation + "\n";
 		
 		// TODO - slutt
 		return str;

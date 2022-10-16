@@ -6,7 +6,7 @@ import no.hvl.dat100ptc.oppgave1.GPSPoint;
 public class GPSData {
 
 	private GPSPoint[] gpspoints;
-	protected int antall = 0;
+	protected int antall;
 	
 	// Lager referansetabell fra Klassen GPSPoint
 	public GPSData(int n) {
@@ -39,10 +39,10 @@ public class GPSData {
 
 	public boolean insert(String time, String latitude, String longitude, String elevation) {
 
-		gpspoints = GPSPoint;
-		boolean inserted = insertGPS(gpspoints);
+
+		GPSPoint x = GPSDataConverter.convert(time,latitude,longitude,elevation);
 		
-		return inserted;
+		return insertGPS(x);
 
 		// TODO - START
 		
@@ -54,14 +54,18 @@ public class GPSData {
 	public void print() {
 
 		System.out.println("====== Konvertert GPS Data - START ======");
-		
+		int i = 0;
 		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
+		while(i<gpspoints.length) {
+			
+			System.out.println(gpspoints[i].toString());
+		i++;
+		}
+	
 
 		// TODO - SLUTT
 		
-		// System.out.println("====== Konvertert GPS Data - SLUTT ======");
+		System.out.println("====== Konvertert GPS Data - SLUTT ======");
 
 	}
 }
