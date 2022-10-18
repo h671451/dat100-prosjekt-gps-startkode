@@ -35,6 +35,7 @@ public class ShowRoute extends EasyGraphics {
 		makeWindow("Route", MAPXSIZE + 2 * MARGIN, MAPYSIZE + 2 * MARGIN);
 
 		showRouteMap(MARGIN + MAPYSIZE);
+
 		
 		showStatistics();
 	}
@@ -52,25 +53,65 @@ public class ShowRoute extends EasyGraphics {
 
 	// antall y-pixels per breddegrad
 	public double ystep() {
+		
+		double maxlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+		double minlat = GPSUtils.findMin(GPSUtils.getLatitudes(gpspoints));
 	
-		double ystep;
+		double ystep = MAPXSIZE / (Math.abs(maxlat - minlat));
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-
+		return ystep;
 		// TODO - SLUTT
 		
 	}
 
 	public void showRouteMap(int ybase) {
 
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - SLUTT
-	}
+        double xstep = this.xstep();
+        double ystep = this.ystep();
+        System.out.println("xstep: " + xstep + " ystep: " + ystep);
+
+        double minlong = GPSUtils.findMin(GPSUtils.getLongitudes(gpspoints));
+        double minlat = GPSUtils.findMax(GPSUtils.getLatitudes(gpspoints));
+        System.out.println("minlong: " + minlong + "minlat: " + minlat);
+
+        int points = gpspoints.length;
+        double[] longs = new double [points];
+        double[] lats = new double [points];
+
+        for(int i = 0; i < points; i++) {
+            longs[i] = gpspoints[i].getLongitude() - minlong;
+        }
+        for(int i = 0; i < points; i++) {
+        lats[i] = gpspoints[i].getLatitude() - minlat;
+        }
+
+        setColor(0,225,0);
+        for(int i = 0; i < points; i++) {
+            int x = (int) (MARGIN + (longs[i]xstep));
+            int y = (int) (ybase - (lats[i]ystep));
+            if (i == points - 1) {
+                setColor(0,0,225);
+                fillCircle(x,y,5);
+            }
+            else { 
+                int nextX = (int) (MARGIN + (longs[i+1]xstep));
+                int nextY = (int) (ybase - (lats[i+1]ystep));
+                if ( i == 0) {
+                    setColor(225,0,0);
+                    fillCircle(x,y,5);
+                    setColor(0,225,0);
+                    drawLine(x,y,nextX,nextY);
+                } else {
+                    fillCircle(x,y,3);
+                    drawLine(x,y,nextX,nextY);
+                }
+            }
+        }
+
+    }
+
 
 	public void showStatistics() {
 
@@ -81,7 +122,6 @@ public class ShowRoute extends EasyGraphics {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
 		
 		// TODO - SLUTT;
 	}

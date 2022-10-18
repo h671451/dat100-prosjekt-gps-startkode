@@ -85,7 +85,7 @@ public class GPSUtils {
 				// TODO - START pow(2,3)
 		double a = pow(sin(toRadians(latitude2-latitude1)/2),2) + (cos(toRadians(latitude1)) * cos(toRadians(latitude2)) * pow(sin(toRadians(longitude2-longitude1)/2),2));
 		double c = 2*(atan2(sqrt(a),sqrt(1-a))) ; 
-
+		
 		d = R * c;
 
 		// TODO - SLUTT
@@ -106,7 +106,6 @@ public class GPSUtils {
 
 		speed = (distance/secs)*3.6;
 		
-		System.out.println(speed);
 		
 
 		return speed;
@@ -135,13 +134,17 @@ public class GPSUtils {
 
 	public static String formatDouble(double d) { //DAT
 
-		String str;
-		
-		
-		str = String.format("%10.2f",d);
-		
-		
-		return str;
+        String str;
+
+        // TODO - START
+
+        double avrundetD = Math.round(d * 100) / 100.0;
+
+        str = Double.toString(avrundetD);
+        String formatert = String.format("%10s", str);
+        
+        return formatert;
+
 
 		// TODO - START
 
