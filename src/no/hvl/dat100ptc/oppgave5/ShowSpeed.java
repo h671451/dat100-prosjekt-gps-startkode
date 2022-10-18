@@ -41,18 +41,18 @@ public class ShowSpeed extends EasyGraphics {
 		showSpeedProfile(MARGIN + BARHEIGHT,N);
 	}
 	
-	public void showSpeedProfile(int ybase, int N) {
+	public void showSpeedProfile(int ybase, int N) { //ADAM
 
 		// get segments speeds from the GPS computer object		
-		double[] speeds = gpscomputer.speeds();
-		double GNS = gpscomputer.averageSpeed();
+		double[] speeds = gpscomputer.speeds(); //henning forklarer metoden speeds
+		double GNS = gpscomputer.averageSpeed();// Dat forklarer metoden averagespeed
 		
-		int y = (int) GNS;
+		int y = (int) GNS; // grønne linjen som tilsvarer gjennomsnitthastigheten for hele ruten
 		int x = MARGIN ;
 		setColor(0,255,0);
 		drawLine(x+N+N,ybase-y,x,ybase-y);
 		
-			for(int i = 0; i<gpspoints.length-1; i++) {
+			for(int i = 0; i<gpspoints.length-1; i++) { //grafen for gjennomsnitthastigheten for to punkter for hele ruten
 			    int x1 = MARGIN + i *2;
 			    speeds[i] = GPSUtils.speed(gpspoints[i],gpspoints[i+1]);
 			    int y1 = (int) speeds[i];

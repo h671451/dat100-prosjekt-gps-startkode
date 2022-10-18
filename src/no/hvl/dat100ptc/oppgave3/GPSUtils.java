@@ -94,7 +94,7 @@ public class GPSUtils {
 
 	}
 //SPEED metoden kalkulerer gjennomsnittet mellom punkt 1 og punkt 2
-	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) { //DAT
+	public static double speed(GPSPoint gpspoint1, GPSPoint gpspoint2) { //
 		
 		int secs;
 		double speed;

@@ -41,7 +41,7 @@ public class ShowProfile extends EasyGraphics {
 		showHeightProfile(MARGIN + MAXBARHEIGHT); 
 	}
 
-	public void showHeightProfile(int ybase) {
+	public void showHeightProfile(int ybase) { //DAT
 
 		// ybase indicates the position on the y-axis where the columns should start
 	
@@ -49,7 +49,6 @@ public class ShowProfile extends EasyGraphics {
 		    setColor(0,0,255);
 		    int x = MARGIN +i *3;
 		    int y =  (int) gpspoints[i].getElevation();
-
 
 		    drawLine(x,ybase,x,ybase-y);
 		}

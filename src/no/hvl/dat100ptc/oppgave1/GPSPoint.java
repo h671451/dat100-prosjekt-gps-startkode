@@ -4,7 +4,7 @@ import no.hvl.dat100ptc.TODO;
 
 
 
-public class GPSPoint {
+public class GPSPoint { //henning
 	//Dat
 	// TODO - objektvariable
 	public int time;
@@ -25,7 +25,7 @@ public class GPSPoint {
 
 
 	// TODO - get/set metoder
-	public int getTime() { // ADAM
+	public int getTime() { // 
 		
 		return time;
 		

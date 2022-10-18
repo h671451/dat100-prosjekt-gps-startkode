@@ -74,7 +74,7 @@ public class GPSComputer {
 		
 	// beregn gjennomsnitshastighets mellom hver av gps punktene
 
-	public double[] speeds() {
+	public double[] speeds() { //Henning
 		double[] GNS = new double [gpspoints.length-1];
 
 		
@@ -160,24 +160,19 @@ public class GPSComputer {
 	}
 
 	public double totalKcal(double weight) {
-//		int [] secs =  new int [gpspoints.length-1];
 
-//		double totalkcal = 0;
-//		double [] avgspeed = new double [gpspoints.length-1];
-//		double [] x = new double [gpspoints.length-1];
-//		int secs = totalTime();
-//
-//		
-//		
-//		for(int i = 0; i<gpspoints.length-1; i ++) {
-//			avgspeed[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);//gir gjennomsnitthastigheten
-//			secs[i] = gpspoints[i+1].getTime()-gpspoints[i].getTime(); //gir sekundene per gpspunkt
-//			
-//			x[i] += kcal(weight,secs,avgspeed[i]*MS); 
-//			totalkcal += x[i];
-//		}
+		double totalkcal = 0;
+		double [] avgspeed = new double [gpspoints.length-1];
+		double [] x = new double [gpspoints.length-1];
+	
+		for(int i = 0; i<gpspoints.length-1; i ++) {
+			avgspeed[i] = GPSUtils.speed(gpspoints[i], gpspoints[i+1]);//gir gjennomsnitthastigheten
+			
+			x[i] += kcal(weight,gpspoints[i+1].getTime()-gpspoints[i].getTime(),avgspeed[i]); 
+			totalkcal += x[i];
+		}
 		
-		return kcal(weight,this.totalTime(),this.averageSpeed());
+		return totalkcal;
 		// TODO - SLUTT
 		
 	}
@@ -194,7 +189,7 @@ public class GPSComputer {
 		System.out.println("Max Speed       : " + GPSUtils.formatDouble(maxSpeed()) + " km/t");
 
 		System.out.println("Average Speed   : " + GPSUtils.formatDouble(averageSpeed()) + " km/t");
-//		System.out.println("Energy  : " + GPSUtils.formatDouble(totalKcal()) + " kcal");
+		System.out.println("Energy  : " + GPSUtils.formatDouble(totalKcal(WEIGHT)) + " kcal");
 
 
 
